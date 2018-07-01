@@ -19,4 +19,6 @@ dependencies {
     providedCompile "javax.el:javax.el-api:$jspElVersion"
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "org.springframework:spring-test:$springVersion"
+    testCompile "org.mockito:mockito-core:$mockitoVersion"
 }
