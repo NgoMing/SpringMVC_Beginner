@@ -8,7 +8,8 @@
           href="<c:url value="/resources/style.css" />" >
 </head>
 <body>
-<h1>Welcome to Login Page</h1>
+    <h1>Welcome to Login Page</h1>
 
+    <a href="<c:url value="/customer/register" />">Register</a>
 </body>
 </html>
