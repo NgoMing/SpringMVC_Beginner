@@ -1,33 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: sans-serif;
 }
 
-.spittleList h1 {
-    font-size: 16pt;
+form {
+    padding: 1em;
+    margin: 1em;
 }
 
-.spittleList ul {
-    list-style: none;
-    margin-left: 0px;
-    padding-left: 0px;
+label {
+    float: left;
+    text-align: left;
+    width: 100px;
+    padding-right: 10px;
 }
 
-.spittleList ul li:first-child {
-    border-top: 0px;
+label.error,
+span.error {
+    color: red;
 }
 
-.spittleList ul li {
-    border-top: 1px solid #cccccc;
+input.error {
+    background-color: #ffcccc;
 }
 
-.spittleTime {
-    font-size: 8pt;
-}
-
-.spittleLocation {
-    font-size: 8pt;
-}
-
-.spittleForm h1 {
-    font-size: 16pt;
+div.errors {
+    border: 2px solid red;
+    background-color: #ffcccc;
+    padding: 0.5em 0;
+    margin-bottom: 0.5em;
 }

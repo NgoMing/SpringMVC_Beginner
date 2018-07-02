@@ -3,6 +3,7 @@ package customerform.domain;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,19 +13,19 @@ public class Customer {
     Long id;
 
     @NotNull
-    @Size(min=5, max=16)
+    @Size(min=5, max=16, message = "{username.size}")
     String username;
 
     @NotNull
-    @Size(min=5, max=25)
+    @Size(min=5, max=25, message = "{password.size}")
     String password;
 
     @NotNull
-    @Size(min=2, max=100)
+    @Size(min=2, max=100, message = "{fullName.size}")
     String fullName;
 
     @NotNull
-    @Email
+    @Email(message = "{email.valid}")
     String email;
 
     public Customer() {}
