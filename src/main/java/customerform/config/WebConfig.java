@@ -24,6 +24,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        resolver.setSuffix(".jsp");
 //        resolver.setExposeContextBeansAsAttributes(true);
 //        return resolver;
+
+        
         return new TilesViewResolver();
     }
 
