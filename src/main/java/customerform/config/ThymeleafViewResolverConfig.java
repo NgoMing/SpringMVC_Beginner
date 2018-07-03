@@ -20,11 +20,14 @@ public class ThymeleafViewResolverConfig {
     @Value("${thymeleaf.suffix}")
     String thymeleafSuffix;
 
+    @Value("${thymeleaf.order}")
+    int order;
+
     @Bean
     public ViewResolver thymeleafViewResolver(SpringTemplateEngine templateEngine) {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine);
-        viewResolver.setOrder(1);
+        viewResolver.setOrder(order);
 
         return viewResolver;
     }
