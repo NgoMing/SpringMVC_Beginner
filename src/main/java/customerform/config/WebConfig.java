@@ -25,7 +25,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        resolver.setExposeContextBeansAsAttributes(true);
 //        return resolver;
 
-        
+
         return new TilesViewResolver();
     }
 
