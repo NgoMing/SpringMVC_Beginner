@@ -16,9 +16,6 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @ComponentScan("customerform.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-
-
-
     @Bean
     public ViewResolver viewResolver() {
         return new TilesViewResolver();
