@@ -15,6 +15,8 @@ public class ThymeleafViewResolverConfig {
     public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine);
+
+//        viewResolver.setViewNames(new String[] { "*.html" });
         return viewResolver;
     }
 
@@ -28,7 +30,7 @@ public class ThymeleafViewResolverConfig {
     @Bean
     public TemplateResolver templateResolver() {
         TemplateResolver templateResolver = new ServletContextTemplateResolver();
-        templateResolver.setPrefix("/WEB-INF/views/");
+        templateResolver.setPrefix("/WEB-INF/views/thymeleaf/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML5");
         return templateResolver;
