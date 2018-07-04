@@ -52,7 +52,11 @@ public class CustomerController extends HttpServlet {
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public String showCustomerProfile(
             @PathVariable String username, Model model) {
+
         Customer customer = customerRepository.findByUserName(username);
+        if (null == customer) {
+            throw new CustomerNotFoundException();
+        }
         model.addAttribute(customer);
         return "profile";
     }
