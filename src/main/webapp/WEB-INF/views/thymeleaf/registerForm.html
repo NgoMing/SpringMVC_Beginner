@@ -11,13 +11,14 @@
 <div id="content">
     <h1>Register</h1>
 
-    <form method="POST" th:object="${customer}">
+    <form method="POST" th:object="${customer}" enctype="multipart/form-data">
         <div class="errors" th:if="${#fields.hasErrors('*')}">
             <ul>
                 <li th:each="err : ${#fields.errors('*')}"
                     th:text="${err}">Input is incorrect</li>
             </ul>
         </div>
+
         <label th:class="${#fields.hasErrors('fullName')}? 'error'">First Name</label>:
         <input type="text" th:field="*{fullName}"
                th:class="${#fields.hasErrors('fullName')}? 'error'" /><br/>
@@ -33,8 +34,13 @@
         <label th:class="${#fields.hasErrors('password')}? 'error'">Password</label>:
         <input type="password" th:field="*{password}"
                th:class="${#fields.hasErrors('password')}? 'error'" /><br/>
-        <input type="submit" value="Register" />
 
+        <label>Profile Picture</label>:
+        <input type="file"
+               name="profilePicture"
+               accept="image/jpeg,image/png,image/gif" /><br/>
+
+        <input type="submit" value="Register" />
 
     </form>
 </div>

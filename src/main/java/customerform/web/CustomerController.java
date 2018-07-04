@@ -9,12 +9,18 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext;
 
+import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/customer")
-public class CustomerController {
+public class CustomerController extends HttpServlet {
 
     CustomerRepository customerRepository;
 
@@ -30,13 +36,16 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String processRegistration(
+    public String processRegistration (
             @Valid Customer customer,
-            Errors errors) {
+            Errors errors) throws IllegalStateException, IOException {
         if (errors.hasErrors())
             return "registerForm";
 
         customerRepository.save(customer);
+        MultipartFile profilePicture = customer.getProfilePicture();
+        File localFile = new File("/tmp/customer/" + customer.getUsername() + ".jpg");
+        profilePicture.transferTo(localFile);
         return "redirect:/customer/" + customer.getUsername();
     }
 
