@@ -13,8 +13,10 @@ repositories {
 dependencies {
     compile "org.springframework:spring-webmvc:$springVersion"
     compile "org.springframework:spring-jdbc:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
     compile "com.h2database:h2:$h2Version"
     compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateEntityManagerVersion"
     compile "org.apache.commons:commons-lang3:$commonsLangVersion"
 
     compile "org.thymeleaf:thymeleaf-spring4:$thymeleafVersion"
@@ -23,6 +25,7 @@ dependencies {
     providedCompile "javax.servlet:javax.servlet-api:$servletApiVersion"
     providedCompile "javax.servlet.jsp:jsp-api:$jspApiVersion"
     providedCompile "javax.el:javax.el-api:$jspElVersion"
+    compile "javax.inject:javax.inject:1"
 
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
@@ -41,3 +44,4 @@ dependencies {
     testCompile "org.mockito:mockito-core:$mockitoVersion"
     testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
 }
+
