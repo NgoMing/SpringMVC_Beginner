@@ -3,6 +3,8 @@ package customerform.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
 public class WebAppInitializer
@@ -31,7 +33,12 @@ public class WebAppInitializer
     protected void customizeRegistration(Dynamic registration) {
 
         registration.setMultipartConfig(
-//                new MultipartConfigElement("/tmp/customer/uploads", 2097152, 4194304, 0));
                 new MultipartConfigElement("C:/temp/", 4194304, 41943040, 0));
+    }
+
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        super.onStartup(servletContext);
+        servletContext.setInitParameter("spring.profiles.active", "development");
     }
 }
