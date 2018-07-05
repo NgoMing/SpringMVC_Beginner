@@ -39,6 +39,6 @@ public class WebAppInitializer
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
-        servletContext.setInitParameter("spring.profiles.active", "development");
+        servletContext.setInitParameter("spring.profiles.active", "hibernate-repository");
     }
 }

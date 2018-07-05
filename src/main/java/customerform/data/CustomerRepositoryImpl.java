@@ -1,12 +1,15 @@
 package customerform.data;
 
 import customerform.domain.Customer;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//@Component
+@Repository
+@Profile("raw-repository")
 public class CustomerRepositoryImpl implements CustomerRepository {
 
     List<Customer> customerList = new ArrayList<>();
